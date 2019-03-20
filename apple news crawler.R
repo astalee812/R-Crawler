@@ -21,5 +21,12 @@ title
 category<-applenews%>%html_nodes("h2")%>%html_text()
 category
 
-
+#抓取20頁的網路資料
+appletitle=NULL
+for (i in 1:20){
+  loc=paste("https://tw.appledaily.com/new/realtime/",i,sep = "")
+  atitle=read_html(loc)%>%html_nodes("h1")%>%html_text()
+  appletitle=c(appletitle,atitle)
+}
+appletitle
 
