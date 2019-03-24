@@ -28,6 +28,7 @@ imdb_rate<-imdb_rate[5:254,]
 imdb_list<-data.frame(name=imdb_movie,year=imdb_year,rate=imdb_rate)
 write.csv(imdb_list,file = "imdb_list.csv")
 
+
 #試看看抓取圖片
 imdb_pic<-imdbweb%>%html_nodes(".posterColumn")%>%html_nodes("img")%>%html_attr("src")
 head(imdb_pic,10)
@@ -40,4 +41,3 @@ for(i in 1:length(imdb_pic))
 {
   download(imdb_pic[i],paste("C:/Users/ASUS/Desktop/crawler/pic/pic",i,".jpg",sep = ""),mode="wb")
   }
-
